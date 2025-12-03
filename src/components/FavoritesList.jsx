@@ -1,4 +1,4 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MdOutlineFavorite } from 'react-icons/md';
@@ -16,16 +16,17 @@ const FavoritesList = () => {
           <h1 className="display-4">Your favorites companies: </h1>
           {favoritesArray.map((company) => (
             <>
-              <div
+              <ListGroup.Item
+                style={{ border: '1px solid #00000033', borderRadius: 4 }}
                 type="button"
-                className="me-2"
+                className="m-2 text-info p-3"
                 onClick={() =>
                   dispatch({ type: 'REMOVE_FROM_FAVORITES', payload: company })
                 }
               >
                 <MdOutlineFavorite />
-              </div>
-              <Link>{company}</Link>
+                <Link className="m-2">{company}</Link>
+              </ListGroup.Item>
             </>
           ))}
         </Col>

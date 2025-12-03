@@ -26,10 +26,11 @@ const Job = ({ data }) => {
       style={{ border: '1px solid #00000033', borderRadius: 4 }}
     >
       <Col xs={3}>
-        <div type="button" className="me-2" onClick={() => changeIcon()}>
+        <div type="button" className="me-2 text-info" onClick={() => changeIcon()}>
           {isFavorite ? <MdOutlineFavorite /> : <MdOutlineFavoriteBorder />}
+            <Link to={`/${data.company_name}`} className='m-2'>{data.company_name}</Link>
         </div>
-        <Link to={`/${data.company_name}`}>{data.company_name}</Link>
+      
       </Col>
       <Col xs={9}>
         <a href={data.url} target="_blank" rel="noreferrer">
